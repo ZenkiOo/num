@@ -1,0 +1,47 @@
+// footer { // вызов mixin
+//   @include phones{ background-color: red;}
+// }
+
+// mixins популярных брекпоинтов
+@mixin desktopTight {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+@mixin tablets {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin phones {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+// Маска для псевдоэлементов
+@mixin mask {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+    src: url("#{$file-path}.eot");
+    src: url("#{$file-path}.eot?#iefix") format("embedded-opentype"),
+      url("#{$file-path}.woff") format("woff"),
+      url("#{$file-path}.ttf") format("truetype");
+  }
+}
